@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Registraire - Exemple CORBA en Java</TITLE>
+</HEAD>
+<BODY>
+<p>Cet exemple illustre un cas un peu plus sophistiqué en CORBA, soit un objet client
+  qui accède à un objet distant via une implémentation de CORBA en java, où
+  un objet d'un troisième type est manipulé par le serveur et le client. L'exemple
+  est librement inspiré de l'exemple <tt>outparam</tt> livré aves la distribution
+  de jacorb 2.3.1, mais a été revu afin d'en faciliter la compréhension. Le
+  domaine de l'exemple est académique (bureau du registraire qui gère un
+  étudiant qui prend des cours).</p>
+<p>L'exemple est livré avec différents scripts maven, bash et DOS qui permettent
+  de le compiler et l'exécuter sur les trois plate-formes supportées dans les
+  laboratoires du département, soit PC sous MS Windows (XP ou 7), PC sous Linux
+  et Mac sous MacOS X.</p>
+  
+<h2>Pré-requis</h2>
+<p>L'exemple tel que livré ici est presque autonome. Les seuls prérequis sont que:</p>
+<ul>
+  <li>un compilateur java doit être sur le chemin d'accès ("path");</li>
+  <li>l'outil Maven doit être sur le chemin d'accès ("path");</li>
+  <li>une distribution de jacorb bien configurée doit être accessible.</li>
+</ul>
+
+<h2>Particularités de l'exemple</h2>
+<p>Bien que vous puissiez manipuler l'exemple dans votre IDE favori, il est 
+  aussi possible de le compiler et l'exécuter à la ligne de commande. La compilation
+  est réalisée via Apache Maven. Un script de compilation pom.xml est fourni. Ce
+  script utilise une hiérarchie de POM parents pour faire son travail. Comme ces
+  POM sont stockés sur le site web du cours, <b>une connexion Internet est requise
+  pour compiler l'exemple</b>.</p>
+
+<h2>Compilation de l'exemple en ciblant jacorb</h2>
+<ul>
+  <li>se déplacer à l'endroit où se trouve le fichier pom.xml dans cette
+    archive (en principe au même niveau que les présentes directives);</li>
+  <li>lancer <tt><b>mvn compile</b></tt> (par défaut, le compilateur IDL est
+    exécuté, puis l'ensemble du code java est compilé).</li>  
+</ul>
+
+<h2>Compilation de l'exemple en ciblant l'ORB du SDK java</h2>
+<ul>
+  <li>se déplacer à l'endroit où se trouve le fichier pom.xml dans cette
+    archive (en principe au même niveau que les présentes directives);</li>
+  <li>lancer <tt><b>mvn compile -P jdk</b></tt> (par défaut, le compilateur IDL
+    est exécuté, puis l'ensemble du code java est compilé).</li>  
+</ul>
+  
+<h2>Exécution de l'exemple avec jacorb</h2>
+<ul>
+  <li>ouvrir trois coquilles (shell) selon votre plate-forme (DOS pour Windows,
+    bash pour linux et MacOS);</li>
+  <li>se déplacer (dans vos trois coquilles) dans le répertoire qui contient les
+    scripts pour votre plate-forme (<tt><b>scripts/dos</b></tt> pour Windows,
+    <tt><b>scripts/bash</b></tt> pour linux et MacOS);</li>
+  <li>régler correctement les paramètres de <tt><b>run.properties[.bat]</b></tt>
+    (surtout le port utilisé pour la NamingService);</li>
+  <li>lancer <tt><b>naming</b></tt> dans une première coquille;</li>
+  <li>lancer <tt><b>server</b></tt> dans une seconde coquille;</li>
+  <li>lancer <tt><b>client</b></tt> dans une troisième coquille;</li>
+</ul>
+
+<h2>Exécution de l'exemple avec l'ORB du SDK java</h2>
+<p>Utiliser la même démarche que pour jacorb, mais en utilisant les scripts
+  <tt><b>naming-sun</b></tt>, <tt><b>server-sun</b></tt> et
+  <tt><b>client-sun</b></tt>.</p>
+
+<p>Par Roger Champagne, ing., Ph. D.<br>
+École de technologie supérieure<br>
+MÀJ 2012-Sep-11</p>
+</BODY>
+</HTML>  

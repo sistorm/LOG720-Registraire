@@ -1,0 +1,42 @@
+// Registraire.idl
+
+module demo
+{
+  module academique
+  {
+    interface Cours 
+    {
+      readonly attribute string sigle;
+      readonly attribute string titre;
+      string toString();
+    };     
+
+    interface CollectionCours
+    {
+      readonly attribute long size;
+      Cours getCours(in long index);
+    };
+
+    interface Etudiant 
+    {
+      attribute string codePermanent;
+      attribute string nom;
+      attribute string prenom;
+      void ajouterCours(in string sigle, in string titre);
+      CollectionCours getListeCours();
+      string toString();
+    };     
+
+    interface CollectionEtudiant
+    {
+      readonly attribute long size;
+      Etudiant getEtudiant(in long index);
+    };
+
+    interface Registraire 
+    {
+      CollectionEtudiant getListeEtudiants();
+      void ajouterEtudiant(in string codePermanent, in string nom, in string prenom);
+    };     
+  };
+};
